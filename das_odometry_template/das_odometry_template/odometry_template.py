@@ -17,9 +17,12 @@ class JointStateToOdom(Node):
         self.pub_ = self.create_publisher(Odometry, '/das/odometry', 10)
 
     def joint_state_callback(self, msg: JointState):
-        # Blank callback for now
-        # You can process `msg` and publish Odometry here
         odom_msg = Odometry()
+        odom_msg.header.frame_id="odom"
+        odom_msg.child_frame_id="robot_base"
+        
+        # Write odometry calculations here
+        
         self.pub_.publish(odom_msg)
 
 
