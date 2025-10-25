@@ -10,8 +10,7 @@ class JointStateToOdom(Node):
         super().__init__('jointstate_to_odom')
 
         # Subscriber
-        self.sub_ = self.create_subscription(
-            JointState, '/joint_states', self.joint_state_callback, 10)
+        self.sub_ = self.create_subscription(JointState, '/joint_states', self.joint_state_callback, 10)
 
         # Publisher
         self.pub_ = self.create_publisher(Odometry, '/das/odometry', 10)
